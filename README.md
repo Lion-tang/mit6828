@@ -26,9 +26,11 @@ make grade
 git checkout lab3
 ```
 
-# 2. 代码结构
+# 2. 快速上手
 本仓库是基于 [mit6.828 官方仓库](https://pdos.csail.mit.edu/6.828/2018/jos.git) 完成的，增添了自己的实验代码和实验总结
 ```txt
+# 项目结构
+labx
 ├── boot 
 ├── conf 
 ├── fs
@@ -38,6 +40,40 @@ git checkout lab3
 ├── report # 实验总结
 └── user
 ```
+
+官方 lab 使用 gdb 调试，为了便于文档说明，本项目使用了 cgdb 完成实验总结。如果使用 gdb 调试则可以跳过` cgdb 使用`部分
+
+---
+`cgdb 使用`
+
+需要使用 cgdb 调试，以 lab 1 为例，可以在 `lab1/GNUmakefile` 中 gdb 目标改为：
+```
+gdb:
+#	gdb -n -x .gdbinit
+	i386-jos-elf-cgdb -n -x .gdbinit
+```
+即可使用 cgdb 开始调试 qemu-jos
+
+cgdb 在 ubuntu 安装推荐使用源码编译的方式，通过 apt 源安装的 cgdb 版本较低，同时 cgdb 安装后可能会出现 gdb 版本较低不兼容，这时再安装一个高版本的 gdb 就可以了
+```
+cgdb 源码安装过程：
+1. 安装依赖
+sudo apt install automake
+sudo apt install ncurses-devel
+sudo apt install flex
+sudo apt install textinfo
+sudo apt install libreadline-dev
+
+2. 下载源码开始编译
+git clone https://github.com/cgdb/cgdb.git
+cd cgdb
+./autogen.sh
+./configure --prefix=/usr/local --target=i386-jos-elf --program-prefix=i386-jos-elf- --disable-werror
+make all                 # 编译
+make install             # This step may require privilege (sudo make install) 安装
+```
+
+
 
 # 3. Q&A
 1. 零基础可以学这门课吗？

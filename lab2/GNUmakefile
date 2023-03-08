@@ -150,6 +150,7 @@ QEMUOPTS += $(QEMUEXTRA)
 
 gdb:
 	$(GDB) -n -x .gdbinit
+#	i386-jos-elf-cgdb -n -x .gdbinit
 
 pre-qemu: .gdbinit
 
