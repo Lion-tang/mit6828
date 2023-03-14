@@ -41,6 +41,15 @@ labx
 └── user
 ```
 
+详细参考手册：
+
+1. [Lab1 Booting a PC](./lab1/report/lab1_summary.pdf)
+2. [Lab2 Memory management](./lab2/report/lab2_summary.pdf)
+3. User-Level Environments (正在完成中...)
+4. Preemptive Multitasking (正在完成中...)
+5. File system, Spawn and Shell (正在完成中...)
+6. Network Driver (正在完成中...)
+
 官方 lab 使用 gdb 调试，为了便于文档说明，本项目使用了 cgdb 完成实验总结。如果使用 gdb 调试则可以跳过` cgdb 使用`部分
 
 ---
